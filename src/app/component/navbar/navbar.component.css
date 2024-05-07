@@ -1,0 +1,52 @@
+.container {
+  display: flex;
+  justify-content: space-between; /* Distanza massima tra gli elementi */
+  align-items: center;
+  width: 100%;
+}
+
+.navbar {
+  background-color: black; /* Sfondo nero per la navbar */
+}
+
+.logo-container {
+  display: flex;
+  justify-content: center; /* Centra il logo nella sua "colonna" */
+  flex-grow: 1; /* Permette al logo di prendere lo spazio disponibile */
+}
+
+.buttons-container {
+  display: flex;
+  justify-content: flex-end; /* Allinea i bottoni sulla destra */
+}
+
+.button-row {
+  display: flex;
+  justify-content: center;
+  width: 100%; /* Assicura che il bordo attraversi tutta la larghezza */
+  border-top: 1px solid white;
+  border-bottom: 1px solid white;
+  padding: 10px 0;
+  background-color: black; /* Sfondo nero per la fila di bottoni */
+}
+
+.btn, .btn-clear {
+  padding: 10px 20px;
+  margin: 0 10px;
+  font-size: 16px;
+  color: white;
+  background-color: black;
+  border: 1px solid white;
+  border-radius: 5px;
+  cursor: pointer;
+  outline: none;
+}
+
+.btn:hover, .btn-clear:hover {
+  background-color: #333; /* Cambia il colore di sfondo al passaggio del mouse */
+}
+
+.btn-clear {
+  background-color: transparent; /* Sfondo trasparente */
+  border: none; /* Nessun bordo per i bottoni clear */
+}/*# sourceMappingURL=navbar.component.css.map */
