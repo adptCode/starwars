@@ -34,12 +34,11 @@ export class NavesComponent implements OnInit {
   onScroll() {
     this._starWarsApiService.getStarships(this.nextUrl).subscribe({
       next: (response) => {
-
           this.nextUrl = response.next
-          Array.from(response.results).forEach((element:any) => {
-            this.starshipsList = [...this.starshipsList, element]
-          })
-
+          let newStarships = response.results
+          newStarships.forEach((element:any) => {
+              this.starshipsList = [...this.starshipsList, element]
+          });
       }
     })
   }
