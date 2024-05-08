@@ -1,22 +1,21 @@
-
 import { Component, OnInit, inject } from '@angular/core';
-import { starWarsApiService } from '../../services/starWarsApi.service';
-import { result } from '../../interfaces/starship';
+import { apiService } from '../../services/api.service';
+import { result } from '../../models/starship.inteface';
 import { CommonModule } from '@angular/common';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 
 
 
 @Component({
-  selector: 'app-naves',
+  selector: 'app-starship',
   standalone: true,
   imports: [CommonModule, InfiniteScrollModule],
-  templateUrl: './naves.component.html',
-  styleUrl: './naves.component.scss'
+  templateUrl: './starship.component.html',
+  styleUrl: './starship.component.scss'
 })
-export class NavesComponent implements OnInit {
+export class StarshipComponent implements OnInit {
 
-  private _starWarsApiService = inject(starWarsApiService)
+  private _starWarsApiService = inject(apiService)
 
   starshipsList: result[] = [];
   nextUrl:string = '';
@@ -41,6 +40,10 @@ export class NavesComponent implements OnInit {
           });
       }
     })
+  }
+
+  viewDetails() {
+    console.log('aaaaa')
   }
 
 
