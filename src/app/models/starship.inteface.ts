@@ -2,10 +2,10 @@ export interface Starship  {
   count:    number;
   next:     string | null;
   previous: string | null;
-  results:  result[];
+  results:  Result[];
 }
 
-export interface result {
+export interface Result {
 id: any;
   name:                   string;
   model:                  string;

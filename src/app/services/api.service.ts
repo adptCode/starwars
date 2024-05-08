@@ -18,8 +18,8 @@ export class apiService {
     return this._httpClient.get(apiUrl).pipe(share())
   }
 
-  getStarshipDetails(apiURL:string):Observable<any> {
-    return this._httpClient.get(apiURL).pipe(share())
+  getStarshipDetails(id:number):Observable<any> {
+    return this._httpClient.get(`${this.baseURL}starships/${id}`).pipe(share())
   }
 
 

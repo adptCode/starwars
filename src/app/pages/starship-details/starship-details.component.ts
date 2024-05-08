@@ -1,6 +1,7 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { apiService } from '../../services/api.service';
 import { ActivatedRoute } from '@angular/router';
+import { Result } from '../../models/starship.inteface';
 
 @Component({
   selector: 'app-starship-details',
@@ -15,7 +16,11 @@ export class StarshipDetailsComponent implements OnInit {
   private _apiService = inject(apiService);
 
   ngOnInit(): void {
-    console.log('aa')
+    this._route.params.subscribe(params => {
+      this._apiService.getStarshipDetails(params['id']).subscribe((response:Result) => {
+        console.log(response)
+      })
+    })
   }
 
 
