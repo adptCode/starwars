@@ -18,6 +18,10 @@ export class apiService {
     return this._httpClient.get(apiUrl).pipe(share())
   }
 
+  getStarshipDetails(apiURL:string):Observable<any> {
+    return this._httpClient.get(apiURL).pipe(share())
+  }
+
 
 
 }

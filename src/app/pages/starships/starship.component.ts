@@ -3,6 +3,7 @@ import { apiService } from '../../services/api.service';
 import { result } from '../../models/starship.inteface';
 import { CommonModule } from '@angular/common';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
+import { Router } from '@angular/router';
 
 
 
@@ -15,14 +16,16 @@ import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 })
 export class StarshipComponent implements OnInit {
 
-  private _starWarsApiService = inject(apiService)
+  private _apiService = inject(apiService);
+  private _router = inject(Router)
 
   starshipsList: result[] = [];
   nextUrl:string = '';
+  id: number = 0;
 
 
   ngOnInit(): void {
-    this._starWarsApiService.getStarships().subscribe({
+    this._apiService.getStarships().subscribe({
       next: (response) => {
         this.starshipsList = response.results
         this.nextUrl = response.next
@@ -30,8 +33,12 @@ export class StarshipComponent implements OnInit {
     })
   }
 
+  getStarships() {
+    
+  }
+
   onScroll() {
-    this._starWarsApiService.getStarships(this.nextUrl).subscribe({
+    this._apiService.getStarships(this.nextUrl).subscribe({
       next: (response) => {
           this.nextUrl = response.next
           let newStarships = response.results
@@ -42,9 +49,12 @@ export class StarshipComponent implements OnInit {
     })
   }
 
-  viewDetails() {
-    console.log('aaaaa')
-  }
+  findId(url:string) {
 
+  }
+ navigate(id:number) {
+  this._router.navigate(['details'])
+
+ }
 
 }

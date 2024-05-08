@@ -1,33 +1,34 @@
+.navbar {
+  background-color: black;
+  width: 100%;
+}
+
 .container {
   display: flex;
-  justify-content: space-between; /* Distanza massima tra gli elementi */
+  justify-content: flex-start;
   align-items: center;
   width: 100%;
 }
 
-.navbar {
-  background-color: black; /* Sfondo nero per la navbar */
-}
-
-.logo-container {
+.container > div:first-child {
+  flex-grow: 1;
   display: flex;
-  justify-content: center; /* Centra il logo nella sua "colonna" */
-  flex-grow: 1; /* Permette al logo di prendere lo spazio disponibile */
+  justify-content: center;
 }
 
 .buttons-container {
   display: flex;
-  justify-content: flex-end; /* Allinea i bottoni sulla destra */
+  margin-left: auto;
 }
 
 .button-row {
   display: flex;
   justify-content: center;
-  width: 100%; /* Assicura che il bordo attraversi tutta la larghezza */
+  width: 100%;
   border-top: 1px solid white;
   border-bottom: 1px solid white;
   padding: 10px 0;
-  background-color: black; /* Sfondo nero per la fila di bottoni */
+  background-color: black; 
 }
 
 .btn, .btn-clear {

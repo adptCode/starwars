@@ -6,5 +6,5 @@ import { StarshipDetailsComponent } from './pages/starship-details/starship-deta
 export const routes: Routes = [
   {path: '', component: HomeComponent},
   {path: 'starships', component: StarshipComponent},
-  {path: 'details', component: StarshipDetailsComponent}
+  {path: 'starships/:id', component: StarshipDetailsComponent}
 ];

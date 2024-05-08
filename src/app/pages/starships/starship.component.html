@@ -1,11 +1,11 @@
 <section infiniteScroll [infiniteScrollDistance]="2" [infiniteScrollThrottle]="50"
 (scrolled)="onScroll()">
 
-<div class="naves-list" *ngFor="let item of starshipsList, index as i" (click)="viewDetails()">
+<div class="naves-list" *ngFor="let item of starshipsList" (click)="findId(item.url)">
 
   <h3>{{item.name}}</h3>
   <h5>{{item.model}}</h5>
-  <p>{{i}}</p>
+
 
 </div>
 
