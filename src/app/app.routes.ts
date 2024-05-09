@@ -4,7 +4,9 @@ import { StarshipComponent } from './pages/starships/starship.component';
 import { StarshipDetailsComponent } from './pages/starship-details/starship-details.component';
 
 export const routes: Routes = [
-  {path: '', component: HomeComponent},
+  {path: 'home', component: HomeComponent},
   {path: 'starships', component: StarshipComponent},
-  {path: 'starships/:id', component: StarshipDetailsComponent}
+  {path: 'starships/:id', component: StarshipDetailsComponent},
+  { path: '', redirectTo: 'home', pathMatch: 'full' }
+
 ];

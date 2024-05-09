@@ -1,10 +1,10 @@
 import { Component, OnInit, inject } from '@angular/core';
-import { apiService } from '../../services/api.service';
+import { ApiService } from '../../services/api.service';
 import { Result } from '../../models/starship.inteface';
 import { CommonModule } from '@angular/common';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 import { Router } from '@angular/router';
-import { routes } from '../../app.routes';
+
 
 
 
@@ -17,7 +17,7 @@ import { routes } from '../../app.routes';
 })
 export class StarshipComponent implements OnInit {
 
-  private _apiService = inject(apiService);
+  private _apiService = inject(ApiService);
   private _router = inject(Router)
 
   starshipsList: Result[] = [];
@@ -26,16 +26,6 @@ export class StarshipComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this.getStarships()
-  }
-
-  generateId(arr:any) {
-    arr.forEach((element:Result) => {
-      element.id = element.url.slice(0, -1).split('/').pop()
-    })
-  }
-
-  getStarships() {
     this._apiService.getStarships().subscribe({
       next: (response) => {
         this.starshipsList = response.results
@@ -45,6 +35,13 @@ export class StarshipComponent implements OnInit {
     })
   }
 
+  generateId(arr:any) {
+    arr.forEach((element:Result) => {
+      element.id = element.url.slice(0, -1).split('/').pop()
+    })
+  }
+
+ 
   onScroll() {
     this._apiService.getStarships(this.nextUrl).subscribe({
       next: (response) => {

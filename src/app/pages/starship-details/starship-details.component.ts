@@ -1,7 +1,7 @@
 import { Component, OnInit, inject } from '@angular/core';
-import { apiService } from '../../services/api.service';
+import { ApiService } from '../../services/api.service';
 import { ActivatedRoute } from '@angular/router';
-import { Result } from '../../models/starship.inteface';
+import { Details, Result, Starship } from '../../models/starship.inteface';
 
 @Component({
   selector: 'app-starship-details',
@@ -13,15 +13,45 @@ import { Result } from '../../models/starship.inteface';
 export class StarshipDetailsComponent implements OnInit {
 
   private _route = inject(ActivatedRoute)
-  private _apiService = inject(apiService);
+  private _apiService = inject(ApiService);
+
+  public starshipDetail : Details = {
+    name: '',
+    model: '',
+    manufacturer: '',
+    cost_in_credits: '',
+    length: '',
+    max_atmosphering_speed: '',
+    crew: '',
+    passengers: '',
+    cargo_capacity: '',
+    consumables: '',
+    hyperdrive_rating: '',
+    MGLT: '',
+    starship_class: '',
+    pilots: [],
+    films: [],
+    created: undefined,
+    edited: undefined,
+    url: ''
+  }
+
+  public photoURL:string = ''
 
   ngOnInit(): void {
     this._route.params.subscribe(params => {
-      this._apiService.getStarshipDetails(params['id']).subscribe((response:Result) => {
-        console.log(response)
+      this._apiService.getStarshipDetails(params['id']).subscribe((response:Details) => {
+        this.starshipDetail = response;
+        const id = params['id'];
+        this.getStarshipPhoto(id)
       })
     })
   }
+
+  getStarshipPhoto(id:number){
+    this.photoURL =  `https://starwars-visualguide.com/assets/img/starships/${id}.jpg`
+  }
+
 
 
 }

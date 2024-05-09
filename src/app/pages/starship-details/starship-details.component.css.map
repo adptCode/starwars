@@ -1,1 +1,1 @@
-{"version":3,"sources":[],"names":[],"mappings":"","file":"starship-details.component.css"}
+{"version":3,"sources":["starship-details.component.scss","starship-details.component.css"],"names":[],"mappings":"AAAA;EACE,sBAAA;EACA,YAAA;ACCF;;ADEA;EACE,sBAAA;EACA,YAAA;ACCF;;ADGA;EACE,0BAAA;ACAF;;ADGA;EACE,uBAAA;ACAF","file":"starship-details.component.css"}

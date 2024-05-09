@@ -6,7 +6,7 @@ import { Observable, share, of } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class apiService {
+export class ApiService {
 
   private baseURL:string = 'https://swapi.py4e.com/api/';
   private _httpClient = inject(HttpClient)
@@ -15,12 +15,14 @@ export class apiService {
     if(apiUrl === null){
       return of()
     }
-    return this._httpClient.get(apiUrl).pipe(share())
+    return this._httpClient.get(apiUrl)
   }
 
   getStarshipDetails(id:number):Observable<any> {
-    return this._httpClient.get(`${this.baseURL}starships/${id}`).pipe(share())
+    return this._httpClient.get(`${this.baseURL}starships/${id}`)
   }
+
+
 
 
 
