@@ -1,24 +1,26 @@
-.navbar {
+.navbar .container {
   background-color: black;
-  width: 100%;
-}
-
-.container {
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: center;
-  width: 100%;
+  text-align: center;
 }
 
-.container > div:first-child {
-  flex-grow: 1;
+.social-container, .logo-container, .buttons-container {
+  flex: 1;
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 
-.buttons-container {
-  display: flex;
-  margin-left: auto;
+.logo-container .logo {
+  max-width: 100%;
+  height: auto;
+  margin: 0 auto;
+}
+
+.logo {
+  cursor: pointer;
 }
 
 .button-row {
@@ -27,7 +29,6 @@
   width: 100%;
   border-top: 1px solid white;
   border-bottom: 1px solid white;
-  padding: 10px 0;
   background-color: black;
 }
 
@@ -44,10 +45,18 @@
 }
 
 .btn:hover, .btn-clear:hover {
-  background-color: #333; /* Cambia il colore di sfondo al passaggio del mouse */
+  background-color: #333;
 }
 
 .btn-clear {
-  background-color: transparent; /* Sfondo trasparente */
-  border: none; /* Nessun bordo per i bottoni clear */
+  background-color: transparent;
+  border: none;
+}
+
+@media (max-width: 772px) {
+  .navbar .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
 }/*# sourceMappingURL=navbar.component.css.map */

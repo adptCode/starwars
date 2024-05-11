@@ -57,3 +57,13 @@
   background-color: transparent;
   border: none;
 }
+
+@media (max-width: 772px) {
+
+  .navbar .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+}
