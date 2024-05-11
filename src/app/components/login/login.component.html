@@ -1,0 +1,59 @@
+<div class="d-flex justify-content-center align-items-center m-5">
+
+  <form class="text-center needs-validation" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <div class="card" style="width: 50rem;">
+      <div class="card-body">
+        <h3 class="card-title my-3">Login to continue</h3>
+
+
+        <div class="row mb-3">
+
+          <div class="col-sm-10">
+            <input type="email"
+            class="form-control"
+            id="inputEmail"
+            placeholder="email here..."
+            formControlName="email"
+            [ngClass]="{'is-invalid': hasErrors('email', 'required') || hasErrors('email', 'pattern')}"
+            >
+            @if (hasErrors('email', 'required')) {
+              <span class="text-danger">You have to complete this field</span>
+            }
+            @if (hasErrors('email', 'pattern')) {
+              <span class="text-danger">Invalid email format</span>
+            }
+          </div>
+        </div>
+
+        <div class="row mb-3">
+
+          <div class="col-sm-10">
+            <input type="password"
+            class="form-control"
+            id="inputPassword"
+            placeholder="password here..."
+            formControlName="password"
+            [ngClass]="{'is-invalid': hasErrors('password', 'required') || hasErrors('password', 'minlength')}"
+            >
+            @if (hasErrors('password', 'required')) {
+              <span class="text-danger">You have to complete this field</span>
+            }
+            @if (hasErrors('password', 'minlength')) {
+              <span class="text-danger">Password is too short</span>
+            }
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-clear">Log in</button>
+
+        <div class="mt-2 info">Not a member? <a routerLink="/register" > Register</a></div>
+
+
+      </div>
+    </div>
+  </form>
+
+
+</div>
+
+

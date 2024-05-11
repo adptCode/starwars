@@ -1,24 +1,32 @@
 <nav class="navbar">
   <div class="container">
-    <div>
-      <img class="logo" src="../../../assets/img/star-wars-logo.svg" loading="lazy" alt="Star Wars Logo" width="350" height="300">
+    <div class="social-container">
+      <a href="https://github.com/adptCode" class="btn btn-clear" target="_blank">
+        <i class="fab fa-github"></i>
+      </a>
+      <a href="https://www.linkedin.com/in/adptcode" class="btn btn-clear" target="_blank">
+        <i class="fab fa-linkedin-in"></i>
+      </a>
+    </div>
+    <div class="logo-container">
+      <img class="logo" src="../../../assets/img/star-wars-logo.svg" loading="lazy" alt="Star Wars Logo" width="180" height="100" routerLink="/home">
     </div>
     <div class="buttons-container">
-      <button type="button" class="btn btn-clear">
+      <a class="btn btn-clear" routerLink="/login">
         <i class="fa fa-sign-in-alt"></i> Login
-      </button>
-      <button type="button" class="btn btn-clear">
+      </a>
+      <a class="btn btn-clear" routerLink="/register">
         <i class="fa fa-user-plus"></i> Signup
-      </button>
+      </a>
     </div>
   </div>
 </nav>
 
 <div class="container button-row">
-  <button type="button" class="btn" routerLink="">
+  <button type="button" class="btn btn-clear" routerLink="">
     Home
   </button>
-  <button type="button" class="btn" routerLink="starships">
+  <button type="button" class="btn btn-clear" routerLink="starships">
     Starship
   </button>
 </div>
