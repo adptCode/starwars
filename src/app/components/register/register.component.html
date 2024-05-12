@@ -1,6 +1,22 @@
 <div class="d-flex justify-content-center align-items-center m-5">
 
   <form class="text-center needs-validation" [formGroup]="registerForm" (ngSubmit)="submitDetails()">
+
+    @if (alertSuccess) {
+      <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <strong>Register successfully</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+    }
+
+    @if (alertDanger) {
+      <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <strong>Something went wrong</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+    }
+
+
     <div class="card">
       <div class="card-body">
         <h3 class="card-title my-3">Register to continue</h3>

@@ -24,13 +24,19 @@ export class LoginComponent {
     })
   }
 
+
+
   hasErrors(field:string, typeError:string) {
     return this.loginForm.get(field)?.hasError(typeError) && this.loginForm.get(field)?.touched;
   }
 
   onSubmit() {
-    this.authService.loginUser(this.loginForm.controls['email'].value, this.loginForm.controls['password'].value).subscribe(
-      response => console.log(response)
+    const {email, password} = this.loginForm.value
+     this.authService.loginUser(email, password).subscribe(
+      response => {
+        sessionStorage.setItem('token', response.accessToken)
+        console.log(response)
+      }
     )
 
   }
