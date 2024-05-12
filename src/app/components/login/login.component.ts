@@ -1,7 +1,8 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { RouterLink } from '@angular/router';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -11,6 +12,8 @@ import { RouterLink } from '@angular/router';
   styleUrl: './login.component.scss'
 })
 export class LoginComponent {
+
+  private authService = inject(AuthService)
 
   loginForm!: FormGroup;
 
@@ -26,6 +29,9 @@ export class LoginComponent {
   }
 
   onSubmit() {
+    this.authService.loginUser(this.loginForm.controls['email'].value, this.loginForm.controls['password'].value).subscribe(
+      response => console.log(response)
+    )
 
   }
 

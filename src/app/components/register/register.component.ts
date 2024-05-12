@@ -31,11 +31,20 @@ export class RegisterComponent {
 
   submitDetails() {
     const postData = {...this.registerForm.value};
-    this.authService.registerUser(postData).subscribe(
+    this.authService.checkRegister(postData.email).subscribe(
       response => {
-        console.log(response)
+        if(response.length === 0) {
+          this.authService.registerUser(postData).subscribe(
+            response => {
+              console.log(response)
+            }
+          )
+        } else {
+          console.log('error: usuario ya existente')
+        }
       }
     )
+
   }
 
 }

@@ -1,5 +1,28 @@
 {
-
-  "user": []
-
+  "users": [
+    {
+      "id": "ab7c",
+      "userName": "antonio",
+      "email": "antonio@gmail.com",
+      "password": "admin"
+    },
+    {
+      "id": "0e04",
+      "userName": "ddddd",
+      "email": "aaaa@hchc.com",
+      "password": "admin"
+    },
+    {
+      "id": "6b97",
+      "userName": "enrico",
+      "email": "enrico@gmail.com",
+      "password": "admin"
+    },
+    {
+      "id": "2bf6",
+      "userName": "riccardo",
+      "email": "riccardo@gmail.com",
+      "password": "admin"
+    }
+  ]
 }
