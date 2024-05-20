@@ -41,6 +41,24 @@
       "password": "$2a$10$ld.Qg4qKO3sFussR6djtUuYFSUnQVxNXOa6b.3dji2VYCAXrj9USC",
       "userName": "gigetto",
       "id": "XNkd7EB"
+    },
+    {
+      "email": "manolo@gmail.com",
+      "password": "$2a$10$XG3UXtE9AP8rRfObyXIJFulNF97qSe150jz9NHDkoJYozJ5sPaNF2",
+      "userName": "manolo",
+      "id": "VFD2vzS"
+    },
+    {
+      "email": "marco@gmail.com",
+      "password": "$2a$10$XgrdeIvAgzwzX0S2f3btp.QNtdgxuw.SJ9xiOYLF8hU2BhqHRE16C",
+      "userName": "marco",
+      "id": "cJUijY7"
+    },
+    {
+      "email": "francesca@gmail.com",
+      "password": "$2a$10$mXo6j/RulQc3SF8kPFKFx.NoOJs9j/ZQrm3mrTT2XrR90dx6YVbby",
+      "userName": "francesca",
+      "id": "yNj25dA"
     }
   ]
 }

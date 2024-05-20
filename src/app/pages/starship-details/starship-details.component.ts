@@ -1,7 +1,7 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { ApiService } from '../../services/api.service';
 import { ActivatedRoute } from '@angular/router';
-import { Details, Result, Starship } from '../../models/starship.inteface';
+import { Details } from '../../models/starship.inteface';
 
 @Component({
   selector: 'app-starship-details',

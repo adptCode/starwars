@@ -1,8 +1,9 @@
 import { CommonModule } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { RouterLink } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
+import { StorageService } from '../../services/storage.service';
 
 @Component({
   selector: 'app-login',
@@ -13,7 +14,12 @@ import { AuthService } from '../../services/auth.service';
 })
 export class LoginComponent {
 
-  private authService = inject(AuthService)
+  private authService = inject(AuthService);
+  private storage = inject(StorageService)
+  private _router = inject(Router);
+  private _route = inject(ActivatedRoute);
+  alertDanger:boolean = false;
+
 
   loginForm!: FormGroup;
 
@@ -32,13 +38,26 @@ export class LoginComponent {
 
   onSubmit() {
     const {email, password} = this.loginForm.value
-     this.authService.loginUser(email, password).subscribe(
-      response => {
-        sessionStorage.setItem('token', response.accessToken)
-        console.log(response)
-      }
-    )
+     this.authService.loginUser(email, password).subscribe({
+      next:  response => {
+        console.log(response);
+        this.storage.saveUser(response)
+        this.loginForm.reset()
+        const returnUrl = this._route.snapshot.queryParams['returnUrl'] || '/';
+                    this._router.navigateByUrl(returnUrl);
+      },
+      error: error => {
+        this.alertDanger = true;
+        console.log(this.alertDanger)
+        console.error(error)
 
+      }
+     }
+    )
+  }
+
+  resetForm() {
+    this.loginForm.reset()
   }
 
 

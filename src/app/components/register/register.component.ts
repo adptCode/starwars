@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { RouterLink } from '@angular/router';
+import { RouterLink, Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
 import { User } from '../../models/auth.interface';
 
@@ -16,6 +16,7 @@ export class RegisterComponent {
 
   registerForm!: FormGroup;
   private authService = inject(AuthService);
+  private _router = inject(Router)
   alertSuccess:boolean = false;
   alertDanger:boolean = false;
 
@@ -40,12 +41,16 @@ export class RegisterComponent {
           this.authService.registerUser(postData as User).subscribe(
             response => {
               this.alertSuccess = true
-              console.log(response)
+              console.log(response);
+              this._router.navigate(['/login']);
+              this.registerForm.reset()
             }
           )
         } else {
           console.log('error: usuario ya existente');
-          this.alertDanger = true
+          this.alertDanger = true;
+          this.alertSuccess = false;
+          this.registerForm.reset()
         }
       }
     )

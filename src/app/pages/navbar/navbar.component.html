@@ -12,12 +12,22 @@
       <img class="logo" src="../../../assets/img/star-wars-logo.svg" loading="lazy" alt="Star Wars Logo" width="180" height="100" routerLink="/home">
     </div>
     <div class="buttons-container">
-      <a class="btn btn-clear" routerLink="/login">
-        <i class="fa fa-sign-in-alt"></i> Login
-      </a>
-      <a class="btn btn-clear" routerLink="/register">
-        <i class="fa fa-user-plus"></i> Signup
-      </a>
+      @if (!storage.isLoggedIn()) {
+        <a class="btn btn-clear" routerLink="/login">
+          <i class="fa fa-sign-in-alt"></i> Login
+        </a>
+        <a class="btn btn-clear" routerLink="/register">
+          <i class="fa fa-user-plus"></i> Signup
+        </a>
+      }
+
+      @else {
+        
+        <a class="btn btn-clear" routerLink="" (click)="logOut()">
+          <i class="fa fa-sign-out-alt" ></i> Logout
+        </a>
+      }
+
     </div>
   </div>
 </nav>
