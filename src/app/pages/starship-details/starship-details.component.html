@@ -1,3 +1,7 @@
+<div class="starship my-3">
+  <h5>STARSHIP</h5>
+</div>
+
 <div class="card mb-3">
   <div class="row g-0">
     <div class="col-md-6 photo">
@@ -19,3 +23,26 @@
     </div>
   </div>
 </div>
+
+@if (starshipDetail.pilots.length > 0) {
+  <div class="starship my-3">
+    <h5>PILOTS</h5>
+  </div>
+  <div class="d-flex">
+    @for (pilotUrl of starshipDetail.pilots; track $index) {
+      <app-pilots [pilotUrl]="pilotUrl"/>
+    }
+  </div>
+}
+
+
+<div class="starship my-3">
+  <h5>FILMS</h5>
+</div>
+<div class="d-flex">
+  @for (filmUrl of starshipDetail.films; track $index) {
+    <app-films [filmsUrl]="filmUrl"/>
+  }
+</div>
+
+

@@ -2,11 +2,13 @@ import { Component, OnInit, inject } from '@angular/core';
 import { ApiService } from '../../services/api.service';
 import { ActivatedRoute } from '@angular/router';
 import { Details } from '../../models/starship.inteface';
+import { PilotsComponent } from '../pilots/pilots.component';
+import { FilmsComponent } from '../films/films.component';
 
 @Component({
   selector: 'app-starship-details',
   standalone: true,
-  imports: [],
+  imports: [PilotsComponent, FilmsComponent],
   templateUrl: './starship-details.component.html',
   styleUrl: './starship-details.component.scss'
 })
@@ -41,6 +43,7 @@ export class StarshipDetailsComponent implements OnInit {
   ngOnInit(): void {
     this._route.params.subscribe(params => {
       this._apiService.getStarshipDetails(params['id']).subscribe((response:Details) => {
+        console.log(response)
         this.starshipDetail = response;
         const id = params['id'];
         this.getStarshipPhoto(id)

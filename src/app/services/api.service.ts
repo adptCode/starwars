@@ -22,6 +22,15 @@ export class ApiService {
     return this._httpClient.get(`${this.baseURL}starships/${id}`)
   }
 
+  getPilots(url:string):Observable<any> {
+    return this._httpClient.get<any>(url)
+  }
+
+  getFilms(url:string):Observable<any> {
+    return this._httpClient.get<any>(url)
+  }
+
+
 
 
 
