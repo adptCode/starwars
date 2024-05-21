@@ -59,6 +59,18 @@
       "password": "$2a$10$mXo6j/RulQc3SF8kPFKFx.NoOJs9j/ZQrm3mrTT2XrR90dx6YVbby",
       "userName": "francesca",
       "id": "yNj25dA"
+    },
+    {
+      "email": "ivan@gmail.com",
+      "password": "$2a$10$c9w0FiKQlZMnyrXwjjdk/eRFcZklGDGZj82bkF7OjB6O8BIO/Zlv2",
+      "userName": "ivan",
+      "id": "R4J3qDG"
+    },
+    {
+      "email": "gianluca@gmail.com",
+      "password": "$2a$10$au0XvTv00eCeNEIQkrsGruK/VMl0DGNCf8gL0HaJIMKl5/RlE8CMS",
+      "userName": "gianluca",
+      "id": "AkPXsUc"
     }
   ]
 }

@@ -17,7 +17,7 @@ export class RegisterComponent {
   registerForm!: FormGroup;
   private authService = inject(AuthService);
   private _router = inject(Router)
-  alertSuccess:boolean = false;
+
   alertDanger:boolean = false;
 
   constructor(private formBuilder: FormBuilder) {
@@ -34,13 +34,17 @@ export class RegisterComponent {
   }
 
   submitDetails() {
+    if (this.registerForm.invalid) {
+      this.registerForm.markAllAsTouched();
+      return;
+    }
     const postData = {...this.registerForm.value};
     this.authService.checkRegister(postData.email).subscribe(
       response => {
         if(response.length === 0) {
           this.authService.registerUser(postData as User).subscribe(
             response => {
-              this.alertSuccess = true
+
               console.log(response);
               this._router.navigate(['/login']);
               this.registerForm.reset()
@@ -49,7 +53,6 @@ export class RegisterComponent {
         } else {
           console.log('error: usuario ya existente');
           this.alertDanger = true;
-          this.alertSuccess = false;
           this.registerForm.reset()
         }
       }
