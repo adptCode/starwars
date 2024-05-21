@@ -8,7 +8,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 ## Clone the repository
 Use the following commands to clone the repository and navigate to the project directory:
 
-git clone https://adptCode/presupuestos.git cd name-of-the-repository
+git clone https://adptCode/starwars.git cd name-of-the-repository
 
 ## Install dependencies
 In the root of the project, run:
