@@ -38,22 +38,21 @@ export class LoginComponent {
 
   onSubmit() {
     if (this.loginForm.invalid) {
-      this.loginForm.markAllAsTouched(); 
+      this.loginForm.markAllAsTouched();
       return;
     }
     const {email, password} = this.loginForm.value
      this.authService.loginUser(email, password).subscribe({
       next:  response => {
-        console.log(response);
+        //console.log(response);
         this.storage.saveUser(response)
-        //this.loginForm.reset()
         const returnUrl = this._route.snapshot.queryParams['returnUrl'] || '/';
                     this._router.navigateByUrl(returnUrl);
       },
       error: error => {
         this.alertDanger = true;
-        console.log(this.alertDanger)
-        console.error(error)
+        //console.log(this.alertDanger)
+        //console.error(error)
 
       }
      }

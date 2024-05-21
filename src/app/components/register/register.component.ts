@@ -51,7 +51,7 @@ export class RegisterComponent {
             }
           )
         } else {
-          console.log('error: usuario ya existente');
+          //console.log('error: usuario ya existente');
           this.alertDanger = true;
           this.registerForm.reset()
         }
